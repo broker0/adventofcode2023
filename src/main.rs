@@ -38,9 +38,17 @@ fn run_day02(test: bool) {
     println!("result of stage 2:\n{stage2}");
 }
 
+fn run_day03(test: bool) {
+    let input = get_day_data(3, test);
+
+    let result = days::day03::stage1_2(&input);
+    println!("result of stages 1 and 2:\n{result}");
+}
+
 fn main() {
     let test = false;
 
-    run_day01(test);
-    run_day02(test);
+    // run_day01(test);
+    // run_day02(test);
+    run_day03(test);
 }
