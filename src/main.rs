@@ -45,10 +45,14 @@ fn run_day03(test: bool) {
     println!("result of stages 1 and 2:\n{result}");
 }
 
+
+
 fn main() {
     let test = false;
 
     // run_day01(test);
     // run_day02(test);
-    run_day03(test);
+    // run_day03(test);
+
+    days::day04::run(&get_day_data(4, test));
 }
