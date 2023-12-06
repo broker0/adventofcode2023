@@ -55,5 +55,6 @@ fn main() {
     // run_day03(test);
 
     // days::day04::run(&get_day_data(4, test));
-    days::day05::run2(&get_day_data(5, test));
+    // days::day05::run2(&get_day_data(5, test));
+     days::day06::run1(&get_day_data(6, test));
 }

@@ -129,6 +129,17 @@ pub fn run2(input: &String) {
     }
 
     println!("final: {}", seeds.iter().min().unwrap());
+
+    seeds.sort();
+
+    let mut count: u32 = 1;
+    for i in 1..seeds.len() {
+        if seeds[i] != seeds[i - 1] + 1 {
+            count += 1;
+        }
+    }
+
+    println!("areas {count}");
     println!("{:?}", t1.elapsed());
 
 }
