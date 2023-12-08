@@ -57,6 +57,7 @@ fn main() {
     // days::day04::run(&get_day_data(4, test));
     // days::day05::run2(&get_day_data(5, test));
     //  days::day06::run1(&get_day_data(6, test));
-    days::day07_1::run1(&get_day_data(7, test));
-    days::day07_2::run1(&get_day_data(7, test));
+    // days::day07_1::run1(&get_day_data(7, test));
+    // days::day07_2::run1(&get_day_data(7, test));
+    days::day08::run(&get_day_data(8, test));
 }
