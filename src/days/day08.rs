@@ -30,7 +30,7 @@ pub fn run(input: &str) {
         let l_dest = l_dest.trim_matches('(');
         let r_dest = r_dest.trim_matches(')');
 
-        nodes.insert(src, (&l_dest, r_dest));
+        nodes.insert(src, (l_dest, r_dest));
     }
 
     // part 1
@@ -55,14 +55,14 @@ pub fn run(input: &str) {
 
     // part 2
     let mut currents: Vec<_> = nodes.keys().filter_map(|k| {
-        if k.chars().last().unwrap() == 'A' {
+        if k.ends_with('A') {
             Some(*k)
         } else {
             None
         }
     }).collect();
 
-    let mut step_counters = Vec::new();
+    let mut primes = BTreeSet::new();
 
     for (idx, current) in currents.iter().enumerate() {
         let mut step_counter: i64 = 0;
@@ -79,21 +79,17 @@ pub fn run(input: &str) {
 
             step_counter += 1;
 
-            if curr.chars().last().unwrap() == 'Z' {
+            if curr.ends_with('Z') {
                 break
             }
         }
 
-        step_counters.push(step_counter);   // save steps for current start position
-        println!("{idx} {current } {step_counter}");
+        let p = factors(step_counter);
+        println!("{idx} {current } {step_counter} {p:?}");
+        primes.extend(p);
     }
 
-    let mut primes = BTreeSet::new();
-    step_counters.iter().for_each(|n| {
-        primes.extend(factors(*n));
-    });
-
-    println!("{primes:?}");
+    println!("prime factors: {primes:?}");
 
     let total_steps: i64 = primes.iter().product();
     println!("Stage 2: {total_steps}");
