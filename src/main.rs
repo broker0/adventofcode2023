@@ -9,8 +9,8 @@ fn get_day_data(day: u8, test: bool) -> String {
     println!("try read data from {file_name}");
 
     let f = File::open(&file_name).unwrap();
+    let mut result = String::with_capacity(f.metadata().unwrap().len() as usize);
     let mut buf = BufReader::new(f);
-    let mut result = String::new();
     let _result_size = buf.read_to_string(&mut result).unwrap();
 
     result
@@ -59,5 +59,6 @@ fn main() {
     //  days::day06::run1(&get_day_data(6, test));
     // days::day07_1::run1(&get_day_data(7, test));
     // days::day07_2::run1(&get_day_data(7, test));
-    days::day08::run(&get_day_data(8, test));
+    // days::day08::run(&get_day_data(8, test));
+    days::day09::run(&get_day_data(9, test));
 }
